@@ -1,0 +1,18 @@
+<!-- roslaunch asr_loc run_sim.launch -->
+
+<launch>
+    <node pkg="asr_loc" type="tracking_node" name="tracking" output="screen"/>
+    <node pkg="asr_loc" type="bounding_node" name="bounding" output="screen"/>
+    <node pkg="asr_loc" type="ba_node" name="ba" output="screen"/>
+    
+    <rosparam command="load" file="$(find asr_loc)/config/sim.yaml" />
+
+    <param name="save_path" value="$(find asr_loc)/result" />
+    <param name="/use_sim_time" value="true"/>
+    
+    <arg name="bag_file" default = "$(find asr_loc)/sim_bag/sim_uwb.bag" />
+    <node pkg="rosbag" type="play" name="rosbag_play" args="--clock -d 2 -r 2 $(arg bag_file)"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" respawn="true" 
+     args="-d $(find asr_loc)/config/rviz.rviz" />
+</launch>

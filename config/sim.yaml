@@ -1,0 +1,51 @@
+# io
+uwb_topic: "/uwb"
+save_path: "/home/zhuyq/code/ROS/UWB_Dual_Filtering/src/asr_loc/result"
+
+# anchor
+num_anchors: 8
+
+anchor_positions: [ 0., 0., 0.16,
+                    14.069914788910836, 0., 0.16,
+                    0., 15.27365720633304, 0.16,
+                    14.19723962, 15.1783084, 0.16,
+                    0.134285, 7.6854759, 2.25,
+                    14.09756276, 7.48562845, 2.25,
+                    7.7767397, 15.23152606, 2.25,
+                    7.71995324, 0.11283668, 2.25 ]
+
+aps_range: [ 20.80837793, 15.15314831, 14.17404784,
+             8.06342, 16.09976669, 7.97074,
+             15.97237031, 7.52959423, 16.12753883,
+             17.25570198, 16.63988039, 8.1093549,
+             7.98850928, 6.67387547, 17.13633645 ]
+
+### filter
+# initial cov mat
+initial_robot_px_var: 0.001
+initial_robot_py_var: 0.001
+initial_robot_pz_var: 0.001
+initial_robot_v_var: 0.0001
+initial_robot_a_var: 0.0001
+
+# motion noise cov mat
+motion_robot_jx_var: 0.001
+motion_robot_jy_var: 0.001
+motion_robot_jz_var: 0.001
+
+# motion noise bound
+motion_robot_jx_bound: 0.4243
+motion_robot_jy_bound: 0.4243
+motion_robot_jz_bound: 0.4243
+
+nlos_thresh: 1
+
+tag_height: 0.2
+
+
+### uwb parameters
+noise_var: 0.01
+
+bias_walk_var: 1.0e-20
+
+bias: [ 0, 0, 0, 0, 0, 0, 0, 0]
